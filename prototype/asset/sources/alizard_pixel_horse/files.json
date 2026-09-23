@@ -1,0 +1,29 @@
+[
+  {
+    "file": "sources/alizard_pixel_horse/horse_run_cycle.png",
+    "url": "https://opengameart.org/sites/default/files/horse_run_cycle_0.png",
+    "size": [
+      410,
+      66
+    ],
+    "sha256": "1426182594f141ac5985c4d2bd068dcc626622c404bafb73a5eccfe65b411d37"
+  },
+  {
+    "file": "sources/alizard_pixel_horse/horse_idle_cycle.png",
+    "url": "https://opengameart.org/sites/default/files/horse_idle_cycle.png",
+    "size": [
+      574,
+      66
+    ],
+    "sha256": "9b1201a8fb2b419522cfdeb31c7d61dd4749d546c7c3c95f40fac8aabb8f9cb7"
+  },
+  {
+    "file": "sources/alizard_pixel_horse/horse_idle_smack_cycle.png",
+    "url": "https://opengameart.org/sites/default/files/horse_idle_smack_cycle.png",
+    "size": [
+      328,
+      66
+    ],
+    "sha256": "90b3ce1f54a56383db2ac4b4b0be06b78abe7a7bceb027f64a40dc44e35cd4fa"
+  }
+]

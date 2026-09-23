@@ -1,0 +1,19 @@
+# Godot generated data
+prototype/.godot/
+
+# Exported builds and transient output
+build/
+builds/
+dist/
+*.tmp
+*.log
+
+# Local editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+
+# Local secrets (keep an explicit example file if one is added later)
+.env
+.env.*
+!.env.example
