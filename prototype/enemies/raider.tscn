@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://enemies/raider.gd" id="1"]
 
+[ext_resource type="SpriteFrames" path="res://asset/runtime/characters/enemies/goblin_runner/goblin_runner_sprite_frames.tres" id="2"]
 [node name="Raider" type="Node2D"]
 script = ExtResource("1")
 kind = "raider"
+visual_frames = ExtResource("2")
+visual_size = Vector2(52, 52)
+texture_filter = 1

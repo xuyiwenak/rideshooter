@@ -8,3 +8,6 @@
 - hostile 箭通过来源有效性清理；所有对玩家伤害统一调用 rider.hurt()。
 - 新敌人注册同时检查 ../world/encounter_director.gd 的出场安排。
 - 此目录改动可能影响所有玩法，运行五组自动测试。
+
+- hit_confirmed只在玩家箭真实扫掠命中、伤害结算后发出位置与方向；enemy_defeated在死亡信号中发一次位置。视觉/声音由asset/runtime/effects/archery消费，Combat不持有音效节点。
+- 修改反馈事件需跑test_archery_feedback，检查齐射只响一次、未命中/离场不响、击杀单次及暂停重开。

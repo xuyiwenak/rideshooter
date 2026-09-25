@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GrowthConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://config/progression/growth_config.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+normal_kill_reward = 2
+elite_kill_reward = 8
+first_upgrade_cost = 3
+cost_increase_per_level = 1

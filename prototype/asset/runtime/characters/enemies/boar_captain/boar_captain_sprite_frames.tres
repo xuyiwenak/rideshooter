@@ -1,0 +1,71 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3]
+
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/enemies/boar_captain/boar_captain_sheet.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="Frame_0"]
+atlas = ExtResource("1")
+region = Rect2(61, 54, 418, 445)
+margin = Rect2(111, 105, 222, 195)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_1"]
+atlas = ExtResource("1")
+region = Rect2(552, 54, 434, 441)
+margin = Rect2(103, 109, 206, 199)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_2"]
+atlas = ExtResource("1")
+region = Rect2(1054, 52, 428, 447)
+margin = Rect2(106, 103, 212, 193)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_3"]
+atlas = ExtResource("1")
+region = Rect2(42, 534, 441, 429)
+margin = Rect2(99, 121, 199, 211)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_4"]
+atlas = ExtResource("1")
+region = Rect2(543, 563, 473, 402)
+margin = Rect2(83, 148, 167, 238)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_5"]
+atlas = ExtResource("1")
+region = Rect2(1092, 541, 408, 424)
+margin = Rect2(116, 126, 232, 216)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_0")}, {"duration": 1.0, "texture": SubResource("Frame_1")}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_2")}],
+"loop": false,
+"name": &"aim",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_3")}],
+"loop": false,
+"name": &"release",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_4")}],
+"loop": false,
+"name": &"charge",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_5")}],
+"loop": false,
+"name": &"recover",
+"speed": 1.0
+}]

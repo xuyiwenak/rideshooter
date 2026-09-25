@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 [ext_resource type="Script" path="res://enemies/elite/elite.gd" id="1"]
+[ext_resource type="SpriteFrames" path="res://asset/runtime/characters/enemies/boar_captain/boar_captain_sprite_frames.tres" id="2"]
 [node name="Elite" type="Node2D"]
 script = ExtResource("1")
 kind = "elite"
+visual_frames = ExtResource("2")
+visual_size = Vector2(72, 72)
+texture_filter = 1

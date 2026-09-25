@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://asset/runtime/characters/horse_hiphop/horse_hiphop.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://asset/runtime/effects/hoof_dust/hoof_dust.tscn" id="2"]
+
+[node name="HorseHiphopPreview" type="Node2D"]
+
+[node name="Backdrop" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 480, 0, 480, 270, 0, 270)
+color = Color(0.34, 0.49, 0.37, 1)
+
+[node name="Ground" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 196, 480, 196, 480, 270, 0, 270)
+color = Color(0.78, 0.6, 0.38, 1)
+
+[node name="HoofDust" parent="." instance=ExtResource("2")]
+position = Vector2(190, 197)
+emitting = true
+
+[node name="Horse" parent="." instance=ExtResource("1")]
+position = Vector2(260, 200)
+scale = Vector2(2.4, 2.4)
+
+[node name="Sprite" parent="Horse" index="0"]
+autoplay = "run"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 14.0
+text = "HIP-HOP HORSE / 6 FRAMES / 8 FPS"
+
+[editable path="Horse"]

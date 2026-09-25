@@ -1,6 +1,8 @@
 extends Node2D
 ## Owns actor lifetime and collision routing, not actor decisions or progression.
 signal enemy_killed(kind: String)
+signal hit_confirmed(at: Vector2, direction: Vector2)
+signal enemy_defeated(at: Vector2)
 const C = preload("res://core/tuning.gd")
 const Infantry = preload("res://enemies/infantry.tscn")
 const Archer = preload("res://enemies/archer.tscn")
@@ -30,7 +32,7 @@ func spawn_enemy(route: int, start_x: float, kind: String) -> Node2D:
 	var enemy = scene.instantiate()
 	next_id += 1
 	enemy.configure(next_id, route, start_x, rider)
-	enemy.died.connect(_on_death)
+	enemy.died.connect(_on_death.bind(enemy))
 	enemy.escaped_screen.connect(_on_escape)
 	enemy.attack_requested.connect(fire_hostile)
 	enemies.append(enemy)
@@ -46,7 +48,8 @@ func spawn_arrow(data: Dictionary) -> void:
 func fire_hostile(origin: Vector2, velocity: Vector2, source: int) -> void:
 	spawn_arrow({"pos": origin, "velocity": velocity, "source": source, "hostile": true, "damage": 1.0})
 
-func _on_death(kind: String) -> void:
+func _on_death(kind: String, enemy: Node2D) -> void:
+	enemy_defeated.emit(enemy.hit_center())
 	kills += 1
 	enemy_killed.emit(kind)
 
@@ -81,7 +84,9 @@ func step(delta: float, road_speed: float = C.ROAD_SPEED) -> void:
 		else:
 			for enemy in enemies:
 				if enemy.hp > 0.0 and not enemy.escaped and arrow.intersects(enemy.hit_center(), 12.0):
+					var impact := Geometry2D.get_closest_point_to_segment(enemy.hit_center(), arrow.previous, arrow.pos)
 					enemy.take_damage(arrow.payload())
+					hit_confirmed.emit(impact, arrow.velocity)
 					arrow.consumed = true
 					break
 	cleanup()

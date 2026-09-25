@@ -2,7 +2,7 @@ extends Node
 ## Owns the current build; no knowledge of enemies, UI or the game root.
 signal skill_acquired(skill: String)
 signal heal_requested(amount: int)
-const C = preload("res://core/tuning.gd")
+@export var bow_config: BowConfig = preload("res://config/weapons/bow_default.tres")
 var skill_levels := {"multishot": 0, "burn": 0, "ram": 0, "shield": 0, "rapid": 0, "heal": 0}
 var arrow_rain := false
 var iron_cavalry := false
@@ -27,7 +27,9 @@ func check_evolutions() -> void:
 	iron_cavalry = skill_levels.ram >= 2 and skill_levels.shield >= 2
 
 func shot_interval() -> float:
-	return C.SHOT_INTERVAL * [1.0, 0.82, 0.66][skill_levels.rapid]
+	var multipliers := [1.0, bow_config.rapid_level_1_interval_multiplier,
+		bow_config.rapid_level_2_interval_multiplier]
+	return bow_config.base_shot_interval * multipliers[skill_levels.rapid]
 
 func shield_restore_time() -> float:
 	return [99.0, 10.0, 7.0][skill_levels.shield]

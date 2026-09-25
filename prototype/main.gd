@@ -10,6 +10,7 @@ var road: Node2D
 var scenery: Node2D
 var hud: Node2D
 var upgrade_panel: Node2D
+var feedback: Node2D
 var initialized := false
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 func initialize() -> void:
 	if initialized:
 		return
+	feedback = $ArcheryFeedback
 	rider = $Rider
 	bow = $Rider/AutoBow
 	combat = $Combat
@@ -52,22 +54,32 @@ func initialize() -> void:
 	combat.enemy_killed.connect(build.on_kill)
 	combat.enemy_killed.connect(growth.on_kill)
 	combat.enemy_killed.connect(director.on_kill)
+	bow.released.connect(feedback.release)
+	combat.hit_confirmed.connect(feedback.hit)
+	combat.enemy_defeated.connect(feedback.defeat)
+	rider.shield_blocked.connect(feedback.shield_block)
+	growth.upgrade_opened.connect(feedback.reward)
+	growth.choice_confirmed.connect(feedback.select)
 	director.elite_requested.connect(_spawn_elite)
 	initialized = true
+	reset_run()
 
-func _spawn_elite() -> void:
-	combat.spawn_enemy(1, 450.0, "elite")
+func _spawn_elite(route: int, start_x: float) -> void:
+	combat.spawn_enemy(route, start_x, "elite")
 
 func _process(delta: float) -> void:
 	if not initialized:
 		return
 	# Bound substeps for collision stability; all modules share pause semantics.
+	feedback.set_paused(growth.upgrade_open or rider.health <= 0 or director.finished())
 	var remaining := minf(delta, 0.25)
 	while remaining > 0.000001:
 		if growth.upgrade_open or rider.health <= 0 or director.finished():
 			break
 		var dt := minf(remaining, 1.0 / 60.0)
+		feedback.step(dt)
 		rider.step(dt)
+		feedback.sync_riding(rider)
 		road.step_speed(dt)
 		director.step(dt)
 		combat.step(dt, road.speed)
@@ -76,6 +88,7 @@ func _process(delta: float) -> void:
 	refresh_views()
 
 func refresh_views() -> void:
+	feedback.set_paused(growth.upgrade_open or rider.health <= 0 or director.finished())
 	rider.queue_redraw()
 	road.queue_redraw()
 	scenery.queue_redraw()
@@ -83,6 +96,7 @@ func refresh_views() -> void:
 	upgrade_panel.queue_redraw()
 
 func reset_run(mode: String = "base") -> void:
+	feedback.reset()
 	combat.reset()
 	build.reset()
 	growth.reset()

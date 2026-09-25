@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3]
+
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/horse_hiphop/horse_hiphop_run_sheet.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0"]
+atlas = ExtResource("1")
+region = Rect2(32, 123, 465, 327)
+margin = Rect2(23, 113, 47, 185)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1"]
+atlas = ExtResource("1")
+region = Rect2(536, 127, 465, 292)
+margin = Rect2(23, 148, 47, 220)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2"]
+atlas = ExtResource("1")
+region = Rect2(1050, 126, 458, 337)
+margin = Rect2(27, 103, 54, 175)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3"]
+atlas = ExtResource("1")
+region = Rect2(49, 613, 453, 290)
+margin = Rect2(29, 150, 59, 222)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4"]
+atlas = ExtResource("1")
+region = Rect2(541, 573, 446, 330)
+margin = Rect2(33, 110, 66, 182)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5"]
+atlas = ExtResource("1")
+region = Rect2(1025, 586, 487, 313)
+margin = Rect2(12, 127, 25, 199)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [
+{"duration": 1.0, "texture": SubResource("AtlasTexture_0")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_1")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_2")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_3")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_4")},
+{"duration": 1.0, "texture": SubResource("AtlasTexture_5")}
+],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]

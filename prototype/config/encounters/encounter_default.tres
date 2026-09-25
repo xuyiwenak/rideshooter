@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EncounterConfig" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://config/encounters/encounter_config.gd" id="1"]
+[ext_resource type="Resource" path="res://config/encounters/waves/formation_a.tres" id="2"]
+[ext_resource type="Resource" path="res://config/encounters/waves/formation_b.tres" id="3"]
+[ext_resource type="Resource" path="res://config/encounters/waves/formation_c.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+run_length = 60.0
+elite_trigger_remaining = 30.0
+pre_elite_spawn_stop_remaining = 36.0
+elite_spawn_lane = 1
+elite_spawn_x = 450.0
+first_wave_delay = 1.4
+wave_interval = 5.0
+lane_cycle = PackedInt32Array(1, 0, 2)
+patterns = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4")])

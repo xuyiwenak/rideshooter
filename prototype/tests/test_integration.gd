@@ -21,7 +21,7 @@ func _initialize() -> void:
 	var enemy = game.combat.spawn_enemy(1, 350.0, "infantry")
 	enemy.take_damage(Damage.new(99.0))
 	enemy.take_damage(Damage.new(99.0))
-	check(game.combat.kills == 1 and game.growth.war_spirit == 1, "Death signal rewards exactly once, including repeated initialization")
+	check(game.combat.kills == 1 and game.growth.war_spirit == game.growth.config.normal_kill_reward, "Death signal rewards exactly once, including repeated initialization")
 	game.combat.cleanup()
 	game.reset_run()
 	check(game.combat.get_child_count() == 0 and game.combat.enemies.is_empty(), "Restart frees active and retired actor nodes")
@@ -40,7 +40,7 @@ func _initialize() -> void:
 	check(game.road.road_scroll == road_before and elite.timer == 0.7 and elite.brain.cooldowns.spear == 6.0 and game.combat.arrows[0].pos == arrow_before and game.road.obstacles[0].x == 300.0, "Upgrade freezes road, actor AI, projectiles and cooldowns together")
 	game.growth.choose(0)
 	game._process(0.1)
-	check(elite.timer < 0.7 and game.road.road_scroll > road_before and game.director.run_left == C.RUN_TIME, "Selecting a skill resumes combat while elite road gate stays closed")
+	check(elite.timer < 0.7 and game.road.road_scroll > road_before and game.director.run_left == game.director.config.run_length, "Selecting a skill resumes combat while elite road gate stays closed")
 	game.reset_run()
 	game.bow.shot_left = 999.0
 	enemy = game.combat.spawn_enemy(0, 350.0, "infantry")

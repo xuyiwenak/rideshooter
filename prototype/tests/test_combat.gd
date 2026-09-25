@@ -83,7 +83,7 @@ func _initialize() -> void:
 	check(game.combat.enemies.is_empty() and game.combat.arrows.is_empty() and game.combat.kills == 0 and game.rider.health == 3, "Restart clears state")
 	for group in 3:
 		game.director.spawn_group(group)
-	check(game.combat.enemies.size() == 8 and game.road.obstacles.size() == 1, "Three encounter groups")
+	check(game.combat.enemies.size() == 9 and game.road.obstacles.size() == 1, "Three configured encounter groups")
 	game.reset_run()
 	game.growth.enabled = false
 	# Isolate the ordinary-combat schedule from the elite road gate.
@@ -92,12 +92,12 @@ func _initialize() -> void:
 	for frame in 3660:
 		game.rider.health = 3
 		game._process(1.0 / 60.0)
-	check(game.director.run_left == 0.0 and game.director.spawn_index == 10, "Full minute schedule completes")
+	check(game.director.run_left == 0.0 and game.director.spawn_index == 12, "Full minute schedule uses configured five-second waves")
 	game.reset_run()
 	game.growth.enabled = false
 	game.rider.health = 0
 	game._process(1.0)
-	check(game.director.run_left == C.RUN_TIME, "Death freezes simulation")
+	check(game.director.run_left == game.director.config.run_length, "Death freezes simulation")
 	game.free()
 	print("Combat checks: %d/%d passed" % [checks - failures, checks])
 	quit(1 if failures else 0)

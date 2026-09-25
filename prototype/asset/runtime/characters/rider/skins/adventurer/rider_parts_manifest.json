@@ -1,0 +1,99 @@
+{
+  "source": "rider_parts_sheet.png",
+  "tool": "image_gen",
+  "regions": {
+    "head": [
+      51,
+      180,
+      288,
+      219
+    ],
+    "body": [
+      482,
+      155,
+      235,
+      341
+    ],
+    "quiver": [
+      860,
+      144,
+      192,
+      305
+    ],
+    "saddle": [
+      1234,
+      173,
+      222,
+      165
+    ],
+    "stirrup": [
+      1293,
+      330,
+      78,
+      129
+    ],
+    "arms_grab": [
+      26,
+      587,
+      340,
+      362
+    ],
+    "arms_nock": [
+      421,
+      589,
+      350,
+      360
+    ],
+    "arms_draw": [
+      777,
+      587,
+      370,
+      362
+    ],
+    "arms_release": [
+      1151,
+      587,
+      335,
+      362
+    ]
+  },
+  "note": "Original PNG retained; AtlasTexture regions split components without pixel editing.",
+  "overrides": {
+    "arms_nock": {
+      "source": "rider_nock_sheet.png",
+      "region": [
+        430,
+        587,
+        337,
+        362
+      ]
+    }
+  },
+  "seat_offsets": [
+    [
+      0,
+      0
+    ],
+    [
+      -1,
+      2
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      -2
+    ],
+    [
+      -1,
+      0
+    ]
+  ],
+  "visual_controller": "res://player/rider_visual.gd"
+}

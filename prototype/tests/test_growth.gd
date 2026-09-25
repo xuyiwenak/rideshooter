@@ -58,7 +58,9 @@ func _initialize() -> void:
 	check(victim.hp < hp - 0.1 and victim.burn_left > 0.0, "Burn deals damage over time")
 	game.reset_run()
 	game.build.skill_levels.rapid = 2
-	check(game.build.shot_interval() < C.SHOT_INTERVAL * 0.7, "Rapid Fire II shortens attack interval")
+	check(game.build.shot_interval() < game.build.bow_config.base_shot_interval * 0.7, "Rapid Fire II shortens attack interval")
+	var configured_enemy = game.combat.spawn_enemy(0, 450.0, "infantry")
+	check(game.build.bow_config == game.bow.bow_config and configured_enemy.bow_config == game.build.bow_config, "Bow modules share the default configuration resource")
 	game.build.skill_levels.shield = 1
 	game.rider.shield_active = true
 	game.rider.hurt()

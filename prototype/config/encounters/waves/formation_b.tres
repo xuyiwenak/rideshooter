@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WavePattern" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://config/encounters/wave_pattern.gd" id="1"]
+[ext_resource type="Script" path="res://config/encounters/wave_enemy.gd" id="2"]
+
+[sub_resource type="Resource" id="InfantryLeft"]
+script = ExtResource("2")
+kind = "infantry"
+lane_offset = 0
+start_x = 495.0
+
+[sub_resource type="Resource" id="RaiderMiddle"]
+script = ExtResource("2")
+kind = "raider"
+lane_offset = 1
+start_x = 560.0
+
+[sub_resource type="Resource" id="InfantryRight"]
+script = ExtResource("2")
+kind = "infantry"
+lane_offset = 2
+start_x = 625.0
+
+[resource]
+script = ExtResource("1")
+enemies = Array[Resource]([SubResource("InfantryLeft"), SubResource("RaiderMiddle"), SubResource("InfantryRight")])

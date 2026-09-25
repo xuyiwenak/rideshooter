@@ -27,7 +27,7 @@ func _initialize() -> void:
 		game._process(1.0 / 60.0)
 		states[elite.state] = true
 	check(states.has("LOCKED") and states.has("CHARGE") and states.has("OPEN") and states.has("AIM") and states.has("THROW"), "Elite uses both committed attacks and recovery")
-	check(game.director.run_left == C.RUN_TIME and game.road.road_scroll > 0.0, "Road pauses but background moves")
+	check(game.director.run_left == game.director.config.run_length and game.road.road_scroll > 0.0, "Road pauses but background moves")
 	check(game.director.spawn_index == 0 and game.combat.enemies.size() == 1, "No ordinary waves during elite")
 	check(elite.x >= C.PLAYER_X + 18.0 and elite.x <= 450.0 and not elite.escaped, "Elite stays onscreen")
 	game.reset_run()
@@ -78,14 +78,14 @@ func _initialize() -> void:
 	hurt(game, elite, 100.0)
 	check(game.director.elite_defeated and game.combat.kills == 1, "Elite death restores road state")
 	game._process(0.1)
-	check(game.director.run_left < C.RUN_TIME and game.combat.enemies.is_empty(), "Road resumes and dead elite clears")
+	check(game.director.run_left < game.director.config.run_length and game.combat.enemies.is_empty(), "Road resumes and dead elite clears")
 	game.reset_run()
 	game.growth.enabled = false
 	game.director.elite_practice = true
 	game.director.start_elite()
 	hurt(game, game.combat.enemies[0], 100.0)
 	game._process(1.0)
-	check(game.director.run_left == C.RUN_TIME, "Practice victory stops simulation")
+	check(game.director.run_left == game.director.config.run_length, "Practice victory stops simulation")
 	var restart := InputEventKey.new()
 	restart.pressed = true
 	restart.keycode = KEY_R

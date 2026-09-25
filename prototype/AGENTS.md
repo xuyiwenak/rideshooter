@@ -21,6 +21,10 @@ GODOT_BIN="/path/to/Godot"
 "$GODOT_BIN" --headless --path prototype --script res://tests/test_growth.gd
 "$GODOT_BIN" --headless --path prototype --script res://tests/test_integration.gd
 "$GODOT_BIN" --headless --path prototype --script res://tests/test_raider.gd
+"$GODOT_BIN" --headless --path prototype --script res://tests/test_run_config.gd
+"$GODOT_BIN" --headless --path prototype --script res://tests/test_archery_feedback.gd
+# 仅在本机导入授权Ovani素材包后运行：
+"$GODOT_BIN" --headless --path prototype --script res://tests/test_licensed_audio.gd
 ```
 
 根据改动运行相关检查；涉及共同伤害、时钟、场景组合或生命周期时运行全套。既看退出码，也检查 Godot 输出的解析/运行错误。视觉变化另外使用 tests/preview_*.gd 图形运行并查看截图，不能用 headless 结果替代。

@@ -121,13 +121,15 @@ func _draw() -> void:
 		var aim := Vector2(C.PLAYER_X, C.LANE_Y[aim_lane] - 15) - position
 		draw_line(Vector2(0, -15), aim, color, 2.0)
 		draw_arc(aim, 17.0, 0.0, TAU, 24, color, 2.0)
-	# Both riders face right; negative relative velocity represents slowing down.
-	draw_ellipse(Vector2(0, 12), 25.0, 4.0, Color(0, 0, 0, 0.3))
-	draw_rect(Rect2(-24, -19, 48, 18), color)
-	draw_rect(Rect2(15, -30, 13, 20), color)
-	draw_rect(Rect2(-16, -2, 5, 13), color)
-	draw_rect(Rect2(12, -2, 5, 13), color)
-	draw_rect(Rect2(-6, -37, 15, 20), Color("75495f"))
-	draw_circle(Vector2(1, -43), 7.0, color)
-	draw_line(Vector2(-4, -25), Vector2(-48, -17), color, 3.0)
+	# Left-facing boar captain shares the ordinary enemy visual clock.
+	draw_ellipse(Vector2(0, 7), 26.0, 3.0, Color(color, 0.6))
+	draw_character()
 	draw_status()
+
+func visual_animation() -> StringName:
+	match state:
+		"AIM": return &"aim"
+		"THROW": return &"release"
+		"LOCKED", "CHARGE": return &"charge"
+		"OPEN", "RECOIL": return &"recover"
+	return &"run"

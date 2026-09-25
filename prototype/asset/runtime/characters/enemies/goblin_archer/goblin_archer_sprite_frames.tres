@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/enemies/goblin_archer/goblin_archer_sheet.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="Frame_0"]
+atlas = ExtResource("1")
+region = Rect2(178, 50, 368, 551)
+margin = Rect2(200, 109, 400, 217)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_1"]
+atlas = ExtResource("1")
+region = Rect2(767, 62, 381, 544)
+margin = Rect2(193, 116, 387, 224)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_2"]
+atlas = ExtResource("1")
+region = Rect2(104, 674, 482, 534)
+margin = Rect2(143, 126, 286, 234)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Frame_3"]
+atlas = ExtResource("1")
+region = Rect2(764, 669, 417, 539)
+margin = Rect2(175, 121, 351, 229)
+filter_clip = true
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_0")}, {"duration": 1.0, "texture": SubResource("Frame_1")}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_2")}],
+"loop": false,
+"name": &"aim",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("Frame_3")}],
+"loop": false,
+"name": &"release",
+"speed": 1.0
+}]

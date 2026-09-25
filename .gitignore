@@ -1,5 +1,11 @@
 # Godot generated data
 prototype/.godot/
+__pycache__/
+*.pyc
+
+# Ovani starter pack is licensed for game use, not public source redistribution.
+prototype/asset/runtime/audio/sfx/ovani_starter/*.wav
+prototype/asset/runtime/audio/sfx/ovani_starter/*.wav.import
 
 # Exported builds and transient output
 build/

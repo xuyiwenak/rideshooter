@@ -1,0 +1,94 @@
+{
+  "generated_by": "image_gen",
+  "date": "2026-09-25",
+  "image": "goblin_archer_sheet.png",
+  "sha256": "d9d0ede112b9d607f8f64b39faa205fe7ca593e4ced4bee5fe7cbeb3c28bfdb7",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "grid": [
+    2,
+    2
+  ],
+  "canvas": [
+    768,
+    768
+  ],
+  "foot_anchor": [
+    384,
+    660
+  ],
+  "facing": "left",
+  "frames": [
+    {
+      "region": [
+        178,
+        50,
+        368,
+        551
+      ],
+      "margin": [
+        200,
+        109,
+        400,
+        217
+      ]
+    },
+    {
+      "region": [
+        767,
+        62,
+        381,
+        544
+      ],
+      "margin": [
+        193,
+        116,
+        387,
+        224
+      ]
+    },
+    {
+      "region": [
+        104,
+        674,
+        482,
+        534
+      ],
+      "margin": [
+        143,
+        126,
+        286,
+        234
+      ]
+    },
+    {
+      "region": [
+        764,
+        669,
+        417,
+        539
+      ],
+      "margin": [
+        175,
+        121,
+        351,
+        229
+      ]
+    }
+  ],
+  "animations": {
+    "run": [
+      0,
+      1
+    ],
+    "aim": [
+      2
+    ],
+    "release": [
+      3
+    ]
+  },
+  "run_fps": 6
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BowConfig" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://config/weapons/bow_config.gd" id="1_bow"]
+
+[resource]
+script = ExtResource("1_bow")
+base_shot_interval = 0.55
+projectile_speed = 420.0
+same_lane_damage = 1.0
+adjacent_lane_damage = 0.5
+multishot_level_1_extra_targets = 1
+multishot_level_2_extra_targets = 2
+arrow_rain_total_targets = 3
+rapid_level_1_interval_multiplier = 0.82
+rapid_level_2_interval_multiplier = 0.66
+burn_tick_interval = 0.5
+burn_level_1_tick_damage = 0.35
+burn_level_2_tick_damage = 0.7
+burn_level_1_duration = 2.25
+burn_level_2_duration = 3.0

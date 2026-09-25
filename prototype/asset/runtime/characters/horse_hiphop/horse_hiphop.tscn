@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="res://asset/runtime/characters/horse_hiphop/horse_hiphop_sprite_frames.tres" id="1"]
+
+[node name="HorseHiphop" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.15625, 0.15625)
+sprite_frames = ExtResource("1")
+animation = &"run"
+centered = false
+offset = Vector2(-256, -440)

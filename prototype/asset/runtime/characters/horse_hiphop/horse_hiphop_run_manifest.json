@@ -1,0 +1,114 @@
+{
+  "status": "animation_trial_not_gameplay_integrated",
+  "generator": "built_in_image_gen",
+  "frame_count": 6,
+  "fps": 8,
+  "loop": true,
+  "source_grid": [
+    3,
+    2
+  ],
+  "source_cell": [
+    512,
+    512
+  ],
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "foot_baseline": 440,
+  "alignment_alpha_threshold": 200,
+  "facing": "right",
+  "regions": [
+    {
+      "index": 0,
+      "region": [
+        32,
+        123,
+        465,
+        327
+      ],
+      "margin": [
+        23,
+        113,
+        47,
+        185
+      ]
+    },
+    {
+      "index": 1,
+      "region": [
+        536,
+        127,
+        465,
+        292
+      ],
+      "margin": [
+        23,
+        148,
+        47,
+        220
+      ]
+    },
+    {
+      "index": 2,
+      "region": [
+        1050,
+        126,
+        458,
+        337
+      ],
+      "margin": [
+        27,
+        103,
+        54,
+        175
+      ]
+    },
+    {
+      "index": 3,
+      "region": [
+        49,
+        613,
+        453,
+        290
+      ],
+      "margin": [
+        29,
+        150,
+        59,
+        222
+      ]
+    },
+    {
+      "index": 4,
+      "region": [
+        541,
+        573,
+        446,
+        330
+      ],
+      "margin": [
+        33,
+        110,
+        66,
+        182
+      ]
+    },
+    {
+      "index": 5,
+      "region": [
+        1025,
+        586,
+        487,
+        313
+      ],
+      "margin": [
+        12,
+        127,
+        25,
+        199
+      ]
+    }
+  ]
+}

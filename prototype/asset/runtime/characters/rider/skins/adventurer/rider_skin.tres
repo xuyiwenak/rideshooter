@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://player/rider_skin.gd" id="1"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_head.tres" id="2"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_body.tres" id="3"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_quiver.tres" id="4"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_saddle.tres" id="5"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_stirrup.tres" id="6"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_arms_grab.tres" id="7"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_arms_nock.tres" id="8"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_arms_draw.tres" id="9"]
+[ext_resource type="Texture2D" path="res://asset/runtime/characters/rider/skins/adventurer/rider_arms_release.tres" id="10"]
+
+[resource]
+script = ExtResource("1")
+head = ExtResource("2")
+body = ExtResource("3")
+quiver = ExtResource("4")
+saddle = ExtResource("5")
+stirrup = ExtResource("6")
+arms = Array[Texture2D]([ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10")])

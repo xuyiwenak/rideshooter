@@ -41,4 +41,7 @@ func _draw() -> void:
 	var color := Color("ff725f") if hostile else Color("fff1ba")
 	if burn:
 		color = Color("ff9a47")
+	var direction := velocity.normalized()
+	if not hostile:
+		draw_line(-direction * 26.0, -direction * 12.0, Color(color, 0.22), 1.0)
 	draw_line(-velocity.normalized() * (19.0 if hostile else 12.0), Vector2.ZERO, color, 2.0)

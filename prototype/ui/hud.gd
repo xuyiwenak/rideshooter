@@ -9,10 +9,11 @@ var build: Node
 func _draw() -> void:
 	if rider == null:
 		return
-	draw_rect(Rect2(0, 0, 480, 54), Color("1e2735"))
+	# Leave the rider column clear when the top-lane rider jumps.
+	draw_rect(Rect2(180, 0, 300, 54), Color("1e2735"))
 	var font := ThemeDB.fallback_font
-	draw_string(font, Vector2(8, 17), "W/S lane  SPACE jump  SHIFT/E sprint  R restart", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color.WHITE)
-	draw_string(font, Vector2(8, 35), "Kill %d  Road %d  CD %.1f  XP %d/%d" % [combat.kills, ceili(director.run_left), rider.charge_cooldown_left, growth.war_spirit, growth.war_spirit_need], HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color.WHITE)
+	draw_string(font, Vector2(188, 17), "W/S lane  SPACE jump  SHIFT/E sprint  R restart", HORIZONTAL_ALIGNMENT_LEFT, -1, 9, Color.WHITE)
+	draw_string(font, Vector2(188, 35), "Kill %d  Road %d  CD %.1f  XP %d/%d" % [combat.kills, ceili(director.run_left), rider.charge_cooldown_left, growth.war_spirit, growth.war_spirit_need], HORIZONTAL_ALIGNMENT_LEFT, -1, 9, Color.WHITE)
 	var status := "F1 base  F2 elite  F3 arrow rain  F4 iron cavalry"
 	if build.arrow_rain:
 		status = "ARROW RAIN | Burning multi-target volley"
@@ -20,7 +21,16 @@ func _draw() -> void:
 		status = "IRON CAVALRY | Shielded stronger charge"
 	if director.elite_active():
 		status = "ROAD PAUSED | Red: charge / Purple: spear / Green: open"
-	draw_string(font, Vector2(8, 50), status, HORIZONTAL_ALIGNMENT_LEFT, -1, 10, Color("e7c988"))
+	draw_string(font, Vector2(188, 50), status, HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color("e7c988"))
+	# Head indicators share the UI layer so overlapping actor atlases cannot hide them.
+	for enemy in combat.enemies:
+		if enemy.kind == "elite" or enemy.hp <= 0.0:
+			continue
+		var enemy_anchor: Vector2 = enemy.position + Vector2(-12, -41)
+		draw_rect(Rect2(enemy_anchor, Vector2(24, 3)), Color("302e38"))
+		draw_rect(Rect2(enemy_anchor, Vector2(24.0 * enemy.hp / enemy.max_hp, 3)), Color("b8d789"))
+		if enemy.selected and not enemy.escaped:
+			draw_circle(enemy.position + Vector2(0, -49), 3.0, Color("fff1ba"))
 	var elite = combat.elite_actor()
 	if elite != null:
 		var color: Color = elite.state_color()
